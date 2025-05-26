@@ -2,43 +2,52 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { colors } from '../global/colors'
 import Menu from './Menu'
+import Back from './Back'
 
-const Header = () => {
-  return (
-    <View style={styles.container}> 
-      <View style={styles.box1}>
-        <Text>Header</Text>
-      </View>
-      <View style={styles.box2}>
-        <Menu title={"MENU"}></Menu>
-      </View>
-    </View>
-  )
+const Header = ({back}) => {
+  if (back == true) {
+    return (
+      <>
+        <View style={styles.box1}>
+          <Back></Back>
+        </View>
+        <View style={styles.box2}>
+          <Menu title={"MENU"}></Menu>
+        </View>
+      </>
+    )
+  }
+  else{
+     return (
+      <>
+        <View style={styles.box2}>
+          <Menu title={"MENU"}></Menu>
+        </View>
+      </>
+    )
+  }
+
 }
 
 export default Header
 
 const styles = StyleSheet.create({
-  container: {
-    borderWidth: 5,
-    borderColor: "black",
-    width: "96%",
-    height: "8%",
-    backgroundColor: colors.primary,
-    position: "absolute",
-    top: "5%",
-    flexDirection: "row",
-    alignItems: "center"
-  },
   box1: {
-
-    margin: "1%",
-    width: "48%",
-    alignItems: "flex-start"
+    backgroundColor: "white",
+    width: 50,
+    height: 50,
+    position: "absolute",
+    top: 80,
+    left: 40,
+    borderRadius: 5,
   },
-   box2: {
-    margin: "1%",
-    width: "48%",
-    alignItems: "flex-end"
+  box2: {
+    backgroundColor: "white",
+    width: 50,
+    height: 50,
+    position: "absolute",
+    top: 80,
+    right: 40,
+    borderRadius: 5,
   },
 })

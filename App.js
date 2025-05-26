@@ -1,25 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import Header from './src/components/Header';
 import { colors } from './src/global/colors';
 import games from './src/data/games.json'
 
+const fondoGreen = require("./assets/fondo.png")
+const fondoBlue = require("./assets/fondoAzul.png")
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Header></Header>
-      <Text>PANes</Text>
-      <StatusBar style="auto" />
+    <ImageBackground source={fondoGreen} resizeMode='cover' style={styles.container}>
+
+      <Header back={true}></Header>
+
       <FlatList
         data={games}
-        renderItem={ ({item}) =>
-        <Text>{item}</Text>
-      }
-      keyExtractor={itemEl => itemEl}
+        renderItem={({ item }) =>
+          <Text>{item}</Text>
+        }
+        keyExtractor={itemEl => itemEl}
       />
-      
-    </View>
-    
+
+    </ImageBackground>
+
   );
 }
 

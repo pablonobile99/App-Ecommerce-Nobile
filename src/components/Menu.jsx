@@ -4,10 +4,7 @@ import { colors } from '../global/colors'
 
 const Menu = ({title}) => {
   return (
-    <View style={styles.container}>
-      <Text>Menu</Text>
-      <Button title={title}></Button>
-    </View>
+      <Button title={title} style={styles.container}></Button>
   )
 }
 
@@ -15,11 +12,7 @@ export default Menu
 
 const styles = StyleSheet.create({
     container: {
-        borderWidth: 3,
-        borderColor: "black",
-        width: "30%",
+        width: "100%",
         height: "100%",
-        backgroundColor: colors.primary,
-
       },
 })
