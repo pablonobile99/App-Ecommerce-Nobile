@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Button, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { colors } from '../global/colors'
 import Menu from './Menu'
 import Back from './Back'
 
-const Header = ({back}) => {
+const Header = ({back, funcionFondo}) => {
   if (back == true) {
     return (
       <>
@@ -12,7 +12,7 @@ const Header = ({back}) => {
           <Back></Back>
         </View>
         <View style={styles.box2}>
-          <Menu title={"MENU"}></Menu>
+          <Menu title={"MENU"} funcionFondo={funcionFondo}></Menu>
         </View>
       </>
     )
@@ -21,7 +21,7 @@ const Header = ({back}) => {
      return (
       <>
         <View style={styles.box2}>
-          <Menu title={"MENU"}></Menu>
+          <Menu title={"MENU"} funcionFondo={funcionFondo}></Menu>
         </View>
       </>
     )
@@ -42,6 +42,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   box2: {
+    borderColor: "black",
+    borderWidth: 5,
     backgroundColor: "white",
     width: 50,
     height: 50,

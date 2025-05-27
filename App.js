@@ -1,25 +1,37 @@
 import { StatusBar } from 'expo-status-bar';
-import { FlatList, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { Button, FlatList, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import Header from './src/components/Header';
 import { colors } from './src/global/colors';
 import games from './src/data/games.json'
+import Home from './src/screens/Home';
+import { useState } from 'react';
 
-const fondoGreen = require("./assets/fondo.png")
-const fondoBlue = require("./assets/fondoAzul.png")
+
 
 export default function App() {
+
+  const fondoGreen = require("./assets/fondo.png")
+  const fondoBlue = require("./assets/fondoAzul.png")
+
+  const [fondo, setFondo] = useState(fondoGreen)
+
+  const fondoChange = () => {
+    if(fondo == fondoGreen) setFondo(fondoBlue)
+    else setFondo(fondoGreen)
+  }
+
   return (
-    <ImageBackground source={fondoGreen} resizeMode='cover' style={styles.container}>
+    <ImageBackground source={fondo} resizeMode='cover' style={styles.container}>
 
-      <Header back={true}></Header>
-
-      <FlatList
+      
+      <Home funcionFondo={fondoChange} ></Home>
+      {/* <FlatList
         data={games}
         renderItem={({ item }) =>
           <Text>{item}</Text>
         }
         keyExtractor={itemEl => itemEl}
-      />
+      /> */}
 
     </ImageBackground>
 
@@ -29,10 +41,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.secondary,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: "30%"
-
   },
 });
