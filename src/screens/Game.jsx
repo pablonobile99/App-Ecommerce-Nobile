@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import BoxJugador from '../components/BoxJugador'
 import games from '../data/games.json'
 
-const Game = ({partida, backToLoad}) => {
+const Game = ({ partida, backToLoad }) => {
 
   /* const [game, setGame] = useState({})
   const selected = games.filter(item => item.id == partida)
@@ -15,39 +15,40 @@ const Game = ({partida, backToLoad}) => {
   const filterData = () => {
     partida.forEach(e => {
       setData(e.data)
-     });
+    });
   }
-  ! datos ? filterData() : {}
+  !datos ? filterData() : {}
 
 
 
   return (
-    <View style={styles.conteiner}>
+    <>
       <Button title='back' onPress={backToLoad}></Button>
-      <FlatList
+      <View style={styles.conteiner}>
+        <FlatList
           style={styles.jugadorConteiner}
           keyExtractor={(producto) => producto.jugador}
           data={datos}
+          numColumns={"2"}
           renderItem={({ item }) => (
-              <BoxJugador jugador={item.jugador} name={item.name} cash={item.cash} total={item.total}/>
+            <BoxJugador jugador={item.jugador} name={item.name} cash={item.cash} total={item.total} />
           )}
         />
-    </View>
+      </View>
+    </>
   )
 }
 
 export default Game
 
 const styles = StyleSheet.create({
-  conteiner:{
+  conteiner: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
     marginTop: 100,
     width: "100%",
   },
-  jugadorConteiner:{
-    flex: 1,
-    flexDirection: "row",
+  jugadorConteiner: {
   }
 })

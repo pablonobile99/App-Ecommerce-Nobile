@@ -7,8 +7,9 @@ const Home = ({funcionFondo}) => {
 
   return (
     <View style={styles.conteiner}>
-      {/* <Header back={false} funcionFondo={funcionFondo}></Header>
-      <Text>Home</Text> */}
+      <Header back={false} funcionFondo={funcionFondo}></Header>
+      
+      {/* <Text>Home</Text> */}
 
       <Loadgame></Loadgame>
 
@@ -20,6 +21,8 @@ export default Home
 
 const styles = StyleSheet.create({
   conteiner:{
+    paddingTop: 80,
+    marginTop: 80,
     flex: 1,
     alignItems: "center",
     justifyContent: "center",

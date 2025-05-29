@@ -1,7 +1,8 @@
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useState } from 'react'
+import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import games from '../data/games.json'
 import Game from './Game'
+import BotonBase from '../components/BotonBase'
 
 
 
@@ -22,25 +23,67 @@ const Loadgame = () => {
     setStatusSelected (false)
   }
 
+  const [busquedaJugadores, setBusquedaJugadores] = useState("")
+  const [busquedaPartidas, setBusquedaPartidas] = useState("")
+  const [gamesFiltrados, setGamesFiltrados] = useState(games)
+
+  useEffect(() => {
+    if(busquedaJugadores){
+          const filtradosJugadores = games.filter(item => item.jugadores == busquedaJugadores)
+          setGamesFiltrados(filtradosJugadores)
+          setBusquedaPartidas("")
+    }
+    if(busquedaPartidas){
+          const filtradosPartidas = games.filter(item => item.id == busquedaPartidas)
+          setGamesFiltrados(filtradosPartidas)
+          setBusquedaJugadores("")
+    }
+    if(!busquedaJugadores&&!busquedaPartidas){
+      setGamesFiltrados(games)
+    }
+  },[busquedaJugadores,busquedaPartidas])
+
+  
+
   return (
     <>
       { !statusSelected? (
-        <FlatList
-          style={styles.list}
-          keyExtractor={(games) => games.id.toString()}
-          data={games}
-          renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => load(item.id)}>
-              <Text>
-                juego:
-                {item.id}
-                jugadores
-                {item.jugadores}
-              </Text>
-              
-            </TouchableOpacity>
-          )}
-        />
+        <>
+
+          <TextInput
+            style={styles.serch}
+            placeholder='Buscar partida por cantidad de jugadores...'
+            value={busquedaJugadores}
+            onChangeText={setBusquedaJugadores}
+          />
+          <TextInput
+            style={styles.serch}
+            placeholder='Buscar partida por numero de partida...'
+            value={busquedaPartidas}
+            onChangeText={setBusquedaPartidas}
+          />
+
+
+          <FlatList
+            style={styles.list}
+            keyExtractor={(games) => games.id.toString()}
+            data={gamesFiltrados}
+            renderItem={({ item }) => (
+              <TouchableOpacity style={styles.gamesItem} onPress={() => load(item.id)}>
+                <BotonBase tamaño={"big"}>
+                  <Text>
+                    juego: 
+                    {" " + item.id + " - "}
+                    jugadores:
+                    {" " + item.jugadores}
+                  </Text>
+                </BotonBase>
+                
+              </TouchableOpacity>
+            )}
+          />
+
+        </>
       ) : (
         <Game partida={gameSelected} backToLoad={backToLoad}/>
       ) }
@@ -57,7 +100,18 @@ const styles = StyleSheet.create({
     width: "100%"
   },
   list: {
-    marginVertical: 200,
+    marginVertical: 200, 
     flex: 1,
+  },
+  gamesItem:{
+
+  },
+  serch:{
+    backgroundColor: "white",
+    borderColor: "grey",
+    borderWidth: 1,
+    borderRadius: 20,
+    margin: 3,
+    width: "80%",
   }
 })

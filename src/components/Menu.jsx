@@ -1,9 +1,10 @@
-import { Button, Modal, StyleSheet, Text, View } from 'react-native'
+import { Button, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import { colors } from '../global/colors'
+import BotonBase from './BotonBase'
 
 
-const Menu = ({ title , funcionFondo}) => {
+const Menu = ({ title, funcionFondo }) => {
 
   const [menuVisible, setMenulVisible] = useState(false)
 
@@ -17,14 +18,21 @@ const Menu = ({ title , funcionFondo}) => {
 
   return (
     <>
-      <Button title={title} style={styles.container} onPress={activarMenu}></Button>
+      <TouchableOpacity onPress={(activarMenu)} style={styles.container}>
+        <BotonBase tamaño={"cube"}>
+          <Text>
+            MENU
+          </Text>
+        </BotonBase>
+
+      </TouchableOpacity>
 
       <Modal visible={menuVisible} animationType='slide' transparent={true}>
-        <View style={styles.modalMenu}> 
+        <View style={styles.modalMenu}>
           <Text>
             Configuracion:
           </Text>
-          <Button title={"FONDO"}  onPress={funcionFondo}></Button>
+          <Button title={"FONDO"} onPress={funcionFondo}></Button>
           <Button title={"cerrar"} onPress={desactivarMenu}></Button>
         </View>
       </Modal>
