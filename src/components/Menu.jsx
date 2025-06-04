@@ -20,7 +20,7 @@ const Menu = ({ title, funcionFondo }) => {
     <>
       <TouchableOpacity onPress={(activarMenu)} style={styles.container}>
         <BotonBase tamaño={"cube"}>
-          <Text>
+          <Text style={styles.text}>
             MENU
           </Text>
         </BotonBase>
@@ -29,7 +29,7 @@ const Menu = ({ title, funcionFondo }) => {
 
       <Modal visible={menuVisible} animationType='slide' transparent={true}>
         <View style={styles.modalMenu}>
-          <Text>
+          <Text style={styles.text}>
             Configuracion:
           </Text>
           <Button title={"FONDO"} onPress={funcionFondo}></Button>
@@ -58,5 +58,8 @@ const styles = StyleSheet.create({
     gap: 20,
     padding: 20,
     borderRadius: 10,
+  },
+  text:{
+    fontFamily: "LoraRegular",
   }
 })

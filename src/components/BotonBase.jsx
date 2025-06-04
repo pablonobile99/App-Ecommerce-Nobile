@@ -32,7 +32,7 @@ const BotonBase = ({ children, tamaño }) => {
         )
     }
     return (
-        <Text> Algo fallo</Text>
+        <Text style={styles.text}> Algo fallo</Text>
     )
 
 }
@@ -40,7 +40,7 @@ const BotonBase = ({ children, tamaño }) => {
 export default BotonBase
 
 const styles = StyleSheet.create({
-    big:{
+    big: {
         width: 280,
         height: 100,
         backgroundColor: "white",
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
     },
-    cube:{
+    cube: {
         width: "100%",
         height: "100%",
         backgroundColor: "white",
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
     },
-    medium:{
+    medium: {
         backgroundColor: "white",
         borderColor: "gray",
         borderWidth: 1,
@@ -72,5 +72,8 @@ const styles = StyleSheet.create({
         padding: 5,
         alignItems: "center",
         justifyContent: "center"
+    },
+    text: {
+        fontFamily: "LoraRegular",
     }
 })

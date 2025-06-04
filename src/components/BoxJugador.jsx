@@ -9,14 +9,18 @@ const BoxJugador = ({jugador, name, cash, total}) => {
 
   return (
     <BotonBase tamaño={"medium"}>
-      <Text>Jugador: {jugador}</Text>
-      <Text>Nombre: {name}</Text>
-      <Text>Efectivo: {cash}</Text>
-      <Text>Riqueza: {total}</Text>
+      <Text style={styles.text}>Jugador: {jugador}</Text>
+      <Text style={styles.text}>Nombre: {name}</Text>
+      <Text style={styles.text}>Efectivo: {cash}</Text>
+      <Text style={styles.text}>Riqueza: {total}</Text>
     </BotonBase>
   )
 }
 
 export default BoxJugador
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  text:{
+    fontFamily: "LoraRegular",
+  }
+})

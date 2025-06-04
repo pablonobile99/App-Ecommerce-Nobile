@@ -5,10 +5,19 @@ import { colors } from './src/global/colors';
 import games from './src/data/games.json'
 import Home from './src/screens/Home';
 import { useState } from 'react';
+import { useFonts } from 'expo-font';
+
 
 
 
 export default function App() {
+
+  const [fontsLoaded, fontError] = useFonts({
+    LoraBold: require("./assets/Lora-Bold.ttf"),
+    LoraRegular: require("./assets/Lora-Regular.ttf")
+  })
+
+  if (!fontsLoaded || fontError) return null;
 
   const fondoGreen = require("./assets/fondo.png")
   const fondoBlue = require("./assets/fondoAzul.png")
@@ -16,26 +25,20 @@ export default function App() {
   const [fondo, setFondo] = useState(fondoGreen)
 
   const fondoChange = () => {
-    if(fondo == fondoGreen) setFondo(fondoBlue)
+    if (fondo == fondoGreen) setFondo(fondoBlue)
     else setFondo(fondoGreen)
   }
 
-  return (
-    <ImageBackground source={fondo} resizeMode='cover' style={styles.container}>
+  if (fontsLoaded && !fontError) {
+    return (
+      <ImageBackground source={fondo} resizeMode='cover' style={styles.container}>
 
-      
-      <Home funcionFondo={fondoChange} ></Home>
-      {/* <FlatList
-        data={games}
-        renderItem={({ item }) =>
-          <Text>{item}</Text>
-        }
-        keyExtractor={itemEl => itemEl}
-      /> */}
+        <Home funcionFondo={fondoChange} ></Home>
 
-    </ImageBackground>
+      </ImageBackground>
+    );
+  }
 
-  );
 }
 
 const styles = StyleSheet.create({

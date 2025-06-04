@@ -71,7 +71,7 @@ const Loadgame = () => {
             renderItem={({ item }) => (
               <TouchableOpacity style={styles.gamesItem} onPress={() => load(item.id)}>
                 <BotonBase tamaño={"big"}>
-                  <Text>
+                  <Text style={styles.text}>
                     juego: 
                     {" " + item.id + " - "}
                     jugadores:
@@ -113,5 +113,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     margin: 3,
     width: "80%",
+    fontFamily: "LoraRegular",
+  },
+  text:{
+    fontFamily: "LoraRegular",
   }
 })
