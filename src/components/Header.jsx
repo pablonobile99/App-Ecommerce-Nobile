@@ -7,23 +7,23 @@ import Back from './Back'
 const Header = ({back, funcionFondo}) => {
   if (back == true) {
     return (
-      <>
+      <View style={styles.conteiner}>
         <View style={styles.box1}>
           <Back></Back>
         </View>
         <View style={styles.box2}>
           <Menu title={"MENU"} funcionFondo={funcionFondo}></Menu>
         </View>
-      </>
+      </View>
     )
   }
   else{
      return (
-      <>
+      <View style={styles.conteiner}>
         <View style={styles.box2}>
           <Menu title={"MENU"} funcionFondo={funcionFondo}></Menu>
         </View>
-      </>
+      </View>
     )
   }
 
@@ -32,6 +32,10 @@ const Header = ({back, funcionFondo}) => {
 export default Header
 
 const styles = StyleSheet.create({
+  conteiner:{
+    width: "100%",
+    height: 100
+  },
   box1: {
     backgroundColor: "white",
     width: 50,
