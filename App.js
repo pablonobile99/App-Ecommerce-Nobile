@@ -6,6 +6,14 @@ import games from './src/data/games.json'
 import Home from './src/screens/Home';
 import { useEffect, useState } from 'react';
 import { useFonts } from 'expo-font';
+import Help from './src/screens/Help';
+import History from './src/screens/History';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+
+const Stack = createNativeStackNavigator();
+
+
 
 
 export default function App() {
@@ -15,7 +23,6 @@ export default function App() {
     "LoraRegular": require("./assets/Lora-Regular.ttf"),
   })
 
-  
   const fondoGreen = require("./assets/fondo.png")
   const fondoBlue = require("./assets/fondoAzul.png")
 
@@ -30,11 +37,13 @@ export default function App() {
   }
   else{
     return (
-      <ImageBackground source={fondo} resizeMode='cover' style={styles.imageBK}>
-        <View style={styles.container}>
-            <Home funcionFondo={fondoChange}/>
-        </View>
-      </ImageBackground>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="History" component={History}/>
+          <Stack.Screen name="Help" component={Help}/>
+        </Stack.Navigator>
+        
+      </NavigationContainer>
     );
   }
   
@@ -49,3 +58,15 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight
   }
 });
+
+/* 
+<ImageBackground source={fondo} resizeMode='cover' style={styles.imageBK}>
+        <View style={styles.container}>
+
+            <History></History>
+            <Help></Help>
+            <Home funcionFondo={fondoChange}/>
+            
+
+          </View>
+        </ImageBackground> */
