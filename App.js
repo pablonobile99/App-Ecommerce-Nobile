@@ -10,10 +10,11 @@ import Help from './src/screens/Help';
 import History from './src/screens/History';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
+import Loadgame from './src/screens/Loadgame';
+import Newgame from './src/screens/Newgame';
+import Game from './src/screens/Game';
 
 const Stack = createNativeStackNavigator();
-
-
 
 
 export default function App() {
@@ -37,13 +38,20 @@ export default function App() {
   }
   else{
     return (
+      
       <NavigationContainer>
-        <Stack.Navigator>
+        <ImageBackground source={fondo} resizeMode='cover' style={styles.imageBK}>
+        <Stack.Navigator initialRouteName='Home'>
+          <Stack.Screen name="Home" component={Home}/>
+          <Stack.Screen name="Loadgame" component={Loadgame}/>
+          <Stack.Screen name="Newgame" component={Newgame}/>
+          <Stack.Screen name="Game" component={Game}/>
           <Stack.Screen name="History" component={History}/>
           <Stack.Screen name="Help" component={Help}/>
-        </Stack.Navigator>
-        
+        </Stack.Navigator>  
+        </ImageBackground>
       </NavigationContainer>
+      
     );
   }
   

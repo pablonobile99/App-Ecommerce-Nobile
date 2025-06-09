@@ -1,19 +1,17 @@
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { Button, ImageBackground, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Help from './Help'
+import { globalStyles } from '../global/BackGroundStyle'
 
 
-const History = ({navigation}) => {
-
-  const visitarHistory = () => {
-    navigation.navigate("Help");
-  };
+const History = ({ navigation, route }) => {
 
   return (
-    <View>
-      <Text>History</Text>
-      <Button title='Help' onPress={()=> visitarHistory()}/>
-    </View>
+    <ImageBackground source={require("../../assets/fondo.png")} resizeMode='cover' style={globalStyles.imageBK}>
+      <View>
+        <Text>History</Text>
+      </View>
+    </ImageBackground>
   )
 }
 

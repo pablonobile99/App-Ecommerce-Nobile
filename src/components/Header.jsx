@@ -4,7 +4,7 @@ import { colors } from '../global/colors'
 import Menu from './Menu'
 import Back from './Back'
 
-const Header = ({back, funcionFondo}) => {
+const Header = ({back, funcionFondo, navigation, route }) => {
   if (back == true) {
     return (
       <View style={styles.conteiner}>

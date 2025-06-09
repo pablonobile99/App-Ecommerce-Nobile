@@ -1,9 +1,12 @@
-import { Button, FlatList, StyleSheet, Text, View } from 'react-native'
+import { Button, FlatList, ImageBackground, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import BoxJugador from '../components/BoxJugador'
 import games from '../data/games.json'
+import { globalStyles } from '../global/BackGroundStyle'
 
-const Game = ({ partida, backToLoad }) => {
+
+
+const Game = ({ navigation, route }) => {
 
   /* const [game, setGame] = useState({})
   const selected = games.filter(item => item.id == partida)
@@ -13,18 +16,24 @@ const Game = ({ partida, backToLoad }) => {
   const [datos, setData] = useState()
 
   const filterData = () => {
-    partida.forEach(e => {
+    route.params.forEach(e => {
       setData(e.data)
     });
   }
   !datos ? filterData() : {}
 
+  const visitarHistory = () => {
+    navigation.navigate("History");
+  };
 
 
   return (
-    <>
-      <Button title='back' onPress={backToLoad}></Button>
+    <ImageBackground source={require("../../assets/fondo.png")} resizeMode='cover' style={globalStyles.imageBK}>
+
       <View style={styles.conteiner}>
+
+        <Button title='Historial' onPress={() => visitarHistory()} />
+
         <FlatList
           style={styles.jugadorConteiner}
           keyExtractor={(producto) => producto.jugador}
@@ -35,7 +44,7 @@ const Game = ({ partida, backToLoad }) => {
           )}
         />
       </View>
-    </>
+    </ImageBackground>
   )
 }
 
