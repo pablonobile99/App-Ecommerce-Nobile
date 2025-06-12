@@ -1,8 +1,10 @@
-import { Button, FlatList, ImageBackground, StyleSheet, Text, View } from 'react-native'
+import { Button, FlatList, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import BoxJugador from '../components/BoxJugador'
 import games from '../data/games.json'
 import { globalStyles } from '../global/BackGroundStyle'
+import Header from '../components/Header'
+import BotonBase from '../components/BotonBase'
 
 
 
@@ -30,9 +32,16 @@ const Game = ({ navigation, route }) => {
   return (
     <ImageBackground source={require("../../assets/fondo.png")} resizeMode='cover' style={globalStyles.imageBK}>
 
+      <Header back={true} backTo={"Loadgame"} navigation={navigation}></Header>
+      
       <View style={styles.conteiner}>
+    
 
-        <Button title='Historial' onPress={() => visitarHistory()} />
+          <TouchableOpacity onPress={() => visitarHistory()}>
+            <BotonBase tamaño={"small"}>
+              <Text style={globalStyles.text}>Historial</Text>
+            </BotonBase>
+          </TouchableOpacity>
 
         <FlatList
           style={styles.jugadorConteiner}
@@ -55,9 +64,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 100,
+    marginTop: 20,
     width: "100%",
-  },
-  jugadorConteiner: {
   }
 })

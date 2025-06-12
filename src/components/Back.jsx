@@ -1,19 +1,19 @@
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import BotonBase from './BotonBase'
+import { globalStyles } from '../global/BackGroundStyle'
 
-const Back = ({backTo, navigation, route }) => {
-
-  const Volver = () => {
-    navigation.navigate(backTo)
-  }
+const Back = ({volver}) => {
 
   return (
     <View>
-      <Button title='Volver' onPress={Volver}/>
+      <TouchableOpacity onPress={volver}>
+        <BotonBase tamaño={"cube"}>
+          <Text style={globalStyles.text}>Back</Text>
+        </BotonBase>
+      </TouchableOpacity>
     </View>
   )
 }
 
 export default Back
-
-const styles = StyleSheet.create({})

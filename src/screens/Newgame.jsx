@@ -1,11 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ImageBackground, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { globalStyles } from '../global/BackGroundStyle'
+import Header from '../components/Header'
 
-const Newgame = () => {
+const Newgame = ({ navigation, route }) => {
   return (
-    <View>
-      <Text>Newgame</Text>
-    </View>
+    <ImageBackground source={require("../../assets/fondo.png")} resizeMode='cover' style={globalStyles.imageBK}>
+      <Header back={true} backTo={"Home"} navigation={navigation}></Header>
+      <View>
+        <Text>Newgame</Text>
+      </View>
+    </ImageBackground>
   )
 }
 

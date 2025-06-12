@@ -1,20 +1,10 @@
 
-import { Button, FlatList, ImageBackground, SafeAreaView, StyleSheet, Text, View , StatusBar , use} from 'react-native';
-import Header from './src/components/Header';
-import { colors } from './src/global/colors';
-import games from './src/data/games.json'
-import Home from './src/screens/Home';
 import { useEffect, useState } from 'react';
 import { useFonts } from 'expo-font';
-import Help from './src/screens/Help';
-import History from './src/screens/History';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
-import Loadgame from './src/screens/Loadgame';
-import Newgame from './src/screens/Newgame';
-import Game from './src/screens/Game';
 
-const Stack = createNativeStackNavigator();
+import Navigator from './src/navigation/Navigator';
+
+
 
 
 export default function App() {
@@ -38,43 +28,8 @@ export default function App() {
   }
   else{
     return (
-      
-      <NavigationContainer>
-        <ImageBackground source={fondo} resizeMode='cover' style={styles.imageBK}>
-        <Stack.Navigator initialRouteName='Home'>
-          <Stack.Screen name="Home" component={Home}/>
-          <Stack.Screen name="Loadgame" component={Loadgame}/>
-          <Stack.Screen name="Newgame" component={Newgame}/>
-          <Stack.Screen name="Game" component={Game}/>
-          <Stack.Screen name="History" component={History}/>
-          <Stack.Screen name="Help" component={Help}/>
-        </Stack.Navigator>  
-        </ImageBackground>
-      </NavigationContainer>
-      
+      <Navigator></Navigator>
     );
   }
   
 }
-
-const styles = StyleSheet.create({
-  imageBK: {
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight
-  }
-});
-
-/* 
-<ImageBackground source={fondo} resizeMode='cover' style={styles.imageBK}>
-        <View style={styles.container}>
-
-            <History></History>
-            <Help></Help>
-            <Home funcionFondo={fondoChange}/>
-            
-
-          </View>
-        </ImageBackground> */

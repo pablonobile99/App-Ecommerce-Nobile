@@ -19,7 +19,7 @@ const BotonBase = ({ children, tamaño }) => {
     }
     if (tamaño == "small") {
         return (
-            <View>
+            <View  style={styles.small}>
                 {children}
             </View>
         )
@@ -68,6 +68,18 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         width: 120,
         height: 120,
+        margin: 15,
+        padding: 5,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    small: {
+        backgroundColor: "white",
+        borderColor: "gray",
+        borderWidth: 1,
+        borderRadius: 20,
+        width: 200,
+        height: 40,
         margin: 15,
         padding: 5,
         alignItems: "center",

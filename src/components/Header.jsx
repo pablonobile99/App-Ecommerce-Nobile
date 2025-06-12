@@ -4,12 +4,17 @@ import { colors } from '../global/colors'
 import Menu from './Menu'
 import Back from './Back'
 
-const Header = ({back, funcionFondo, navigation, route }) => {
+const Header = ({back, backTo, funcionFondo, navigation, route }) => {
+
+  const Volver = () => {
+    navigation.goBack();
+  }
+
   if (back == true) {
     return (
       <View style={styles.conteiner}>
         <View style={styles.box1}>
-          <Back></Back>
+          <Back volver={Volver}></Back>
         </View>
         <View style={styles.box2}>
           <Menu title={"MENU"} funcionFondo={funcionFondo}></Menu>
@@ -37,7 +42,6 @@ const styles = StyleSheet.create({
     height: 100
   },
   box1: {
-    backgroundColor: "white",
     width: 50,
     height: 50,
     position: "absolute",

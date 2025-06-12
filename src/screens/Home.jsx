@@ -1,8 +1,9 @@
-import { Button, ImageBackground, StyleSheet, Text, View } from 'react-native'
+import { Button, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import Header from '../components/Header'
 import Loadgame from './Loadgame'
 import { globalStyles } from '../global/BackGroundStyle'
+import BotonBase from '../components/BotonBase'
 
 
 const Home = ({ funcionFondo, navigation, route }) => {
@@ -17,17 +18,23 @@ const Home = ({ funcionFondo, navigation, route }) => {
 
   return (
     <ImageBackground source={require("../../assets/fondo.png")} resizeMode='cover' style={globalStyles.imageBK}>
+      
+      <Header back={false} funcionFondo={funcionFondo}></Header>
 
       <View style={styles.conteiner}>
 
+          <TouchableOpacity onPress={() => visitarNewgame()}>
+            <BotonBase tamaño={"big"}>
+              <Text style={styles.text}>New Game</Text>
+            </BotonBase>
+          </TouchableOpacity>
 
-        <Header back={false} funcionFondo={funcionFondo}></Header>
-
-        <Button title='New Game' onPress={() => visitarNewgame()} />
-
-        <Button title='Load Game' onPress={() => visitarLoadgame()} />
-
-
+          <TouchableOpacity onPress={() => visitarLoadgame()}>
+            <BotonBase tamaño={"big"}>
+              <Text style={styles.text}>Load Game</Text>
+            </BotonBase>
+          </TouchableOpacity>
+          
       </View>
     </ImageBackground>
   )

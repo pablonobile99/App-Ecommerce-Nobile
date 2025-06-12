@@ -2,9 +2,10 @@ import { Button, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-n
 import React, { useState } from 'react'
 import { colors } from '../global/colors'
 import BotonBase from './BotonBase'
+import { globalStyles } from '../global/BackGroundStyle'
 
 
-const Menu = ({ title, funcionFondo }) => {
+const Menu = ({ title, funcionFondo, navigation, route }) => {
 
   const [menuVisible, setMenulVisible] = useState(false)
 
@@ -20,7 +21,7 @@ const Menu = ({ title, funcionFondo }) => {
     <>
       <TouchableOpacity onPress={(activarMenu)} style={styles.container}>
         <BotonBase tamaño={"cube"}>
-          <Text style={styles.text}>
+          <Text style={globalStyles.text}>
             MENU
           </Text>
         </BotonBase>
@@ -29,11 +30,26 @@ const Menu = ({ title, funcionFondo }) => {
 
       <Modal visible={menuVisible} animationType='slide' transparent={true}>
         <View style={styles.modalMenu}>
-          <Text style={styles.text}>
+          <Text style={globalStyles.text}>
             Configuracion:
           </Text>
-          <Button title={"FONDO"} onPress={funcionFondo}></Button>
-          <Button title={"cerrar"} onPress={desactivarMenu}></Button>
+
+          <TouchableOpacity onPress={(funcionFondo)}>
+            <BotonBase tamaño={"small"}>
+              <Text style={globalStyles.text}>
+                Fondo
+              </Text>
+            </BotonBase>
+
+          </TouchableOpacity>
+          <TouchableOpacity onPress={(desactivarMenu)}>
+            <BotonBase tamaño={"small"}>
+              <Text style={globalStyles.text}>
+                Cerrar
+              </Text>
+            </BotonBase>
+
+          </TouchableOpacity>
         </View>
       </Modal>
     </>
@@ -48,18 +64,13 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   modalMenu: {
+    flex: 1,
     backgroundColor: colors.soft,
-    width: "80%",
-    height: "60%",
     marginVertical: "40%",
     marginHorizontal: "10%",
     alignContent: "center",
     justifyContent: "center",
-    gap: 20,
     padding: 20,
     borderRadius: 10,
-  },
-  text:{
-    fontFamily: "LoraRegular",
   }
 })

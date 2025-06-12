@@ -9,20 +9,10 @@ import { globalStyles } from '../global/BackGroundStyle'
 
 const Loadgame = ({ navigation, route }) => {
 
-  const [gameSelected, setGameSelected] = useState()
-  const [statusSelected, setStatusSelected] = useState(false)
-
 
   const load = (gameId) => {
-
     const selected = games.filter(item => item.id == gameId)
-    setGameSelected(selected)
-    setStatusSelected(true)
     navigation.navigate("Game", selected);
-  }
-
-  const backToLoad = () => {
-    setStatusSelected(false)
   }
 
   const [busquedaJugadores, setBusquedaJugadores] = useState("")
@@ -50,40 +40,40 @@ const Loadgame = ({ navigation, route }) => {
   return (
     <ImageBackground source={require("../../assets/fondo.png")} resizeMode='cover' style={globalStyles.imageBK}>
 
-      <Header back={true}></Header>
+      <Header back={true} backTo={"Home"} navigation={navigation}></Header>
+      <View style={styles.conteiner}>
+        <TextInput
+          style={styles.serch}
+          placeholder='Buscar partida por cantidad de jugadores...'
+          value={busquedaJugadores}
+          onChangeText={setBusquedaJugadores}
+        />
+        <TextInput
+          style={styles.serch}
+          placeholder='Buscar partida por numero de partida...'
+          value={busquedaPartidas}
+          onChangeText={setBusquedaPartidas}
+        />
 
-      <TextInput
-        style={styles.serch}
-        placeholder='Buscar partida por cantidad de jugadores...'
-        value={busquedaJugadores}
-        onChangeText={setBusquedaJugadores}
-      />
-      <TextInput
-        style={styles.serch}
-        placeholder='Buscar partida por numero de partida...'
-        value={busquedaPartidas}
-        onChangeText={setBusquedaPartidas}
-      />
+        <FlatList
+          style={styles.list}
+          keyExtractor={(games) => games.id.toString()}
+          data={gamesFiltrados}
+          renderItem={({ item }) => (
+            <TouchableOpacity style={styles.gamesItem} onPress={() => load(item.id)}>
+              <BotonBase tamaño={"big"}>
+                <Text style={globalStyles.text}>
+                  juego:
+                  {" " + item.id + " - "}
+                  jugadores:
+                  {" " + item.jugadores}
+                </Text>
+              </BotonBase>
 
-      <FlatList
-        style={styles.list}
-        keyExtractor={(games) => games.id.toString()}
-        data={gamesFiltrados}
-        renderItem={({ item }) => (
-          <TouchableOpacity style={styles.gamesItem} onPress={() => load(item.id)}>
-            <BotonBase tamaño={"big"}>
-              <Text style={styles.text}>
-                juego:
-                {" " + item.id + " - "}
-                jugadores:
-                {" " + item.jugadores}
-              </Text>
-            </BotonBase>
-
-          </TouchableOpacity>
-        )}
-      />
-
+            </TouchableOpacity>
+          )}
+        />
+      </View>
     </ImageBackground>
   )
 }
@@ -93,14 +83,13 @@ export default Loadgame
 const styles = StyleSheet.create({
   conteiner: {
     flex: 1,
-    width: "100%"
+    width: "100%",
+    alignItems: "center",
+    paddingTop: 10,
   },
   list: {
-    marginVertical: 200,
+    marginVertical: 50,
     flex: 1,
-  },
-  gamesItem: {
-
   },
   serch: {
     backgroundColor: "white",
@@ -111,7 +100,4 @@ const styles = StyleSheet.create({
     width: "80%",
     fontFamily: "LoraRegular",
   },
-  text: {
-    fontFamily: "LoraRegular",
-  }
 })
