@@ -2,89 +2,107 @@
     {
         "id": 1,
         "jugadores": 5,
-        "data":[
+        "data": [
             {
-                "jugador" : 1,
+                "jugador": 1,
                 "name": "juan1",
                 "cash": 3000,
                 "total": 4000
             },
             {
-                "jugador" : 2,
+                "jugador": 2,
                 "name": "juan2",
                 "cash": 500,
                 "total": 2000
             },
             {
-                "jugador" : 3,
+                "jugador": 3,
                 "name": "juan3",
                 "cash": 400,
                 "total": 1800
             },
             {
-                "jugador" : 4,
+                "jugador": 4,
                 "name": "juan4",
                 "cash": 1800,
                 "total": 3100
             },
             {
-                "jugador" : 5,
+                "jugador": 5,
                 "name": "juan5",
                 "cash": 3300,
                 "total": 4800
             }
         ],
-        "history": {
-            "h1Out": "j1",
-            "h1In": "j5",
-            "h1Charge": 80,
-            "h2Out": "j3",
-            "h2In": "j2",
-            "h2Charge": 30,
-            "h3Out": "j5",
-            "h3In": "j1",
-            "h3Charge": 10
-        }
+        "history": [
+            {
+                "operacion": 1,
+                "Out": "1",
+                "In": "5",
+                "Charge": 80
+            },
+            {
+                "operacion": 2,
+                "Out": "3",
+                "In": "2",
+                "Charge": 30
+            },
+            {
+                "operacion": 3,
+                "Out": "5",
+                "In": "1",
+                "Charge": 10
+            }
+        ]
     },
     {
         "id": 2,
         "jugadores": 4,
-        "data":[
+        "data": [
             {
-                "jugador" : 1,
+                "jugador": 1,
                 "name": "pepe1",
                 "cash": 3000,
                 "total": 4000
             },
             {
-                "jugador" : 2,
+                "jugador": 2,
                 "name": "pepe2",
                 "cash": 500,
                 "total": 2000
             },
             {
-                "jugador" : 3,
+                "jugador": 3,
                 "name": "pepe3",
                 "cash": 400,
                 "total": 1800
             },
             {
-                "jugador" : 4,
+                "jugador": 4,
                 "name": "pepe4",
                 "cash": 1800,
                 "total": 3100
             }
         ],
-        "history": {
-            "h1Out": "j1",
-            "h1In": "j2",
-            "h1Charge": 90,
-            "h2Out": "j3",
-            "h2In": "j2",
-            "h2Charge": 30,
-            "h3Out": "j4",
-            "h3In": "j1",
-            "h3Charge": 10
-        }
+        "history": [
+            {   
+                "operacion": 1,
+                "Out": "1",
+                "In": "2",
+                "Charge": 90
+            },
+            {
+                "operacion": 2,
+                "Out": "3",
+                "h2In": "2",
+                "Charge": 50
+            },
+            {
+                "operacion": 3,
+                "Out": "4",
+                "In": "1",
+                "Charge": 15
+            }
+        ]
     }
 ]

@@ -83,9 +83,8 @@ export default Loadgame
 const styles = StyleSheet.create({
   conteiner: {
     flex: 1,
-    width: "100%",
     alignItems: "center",
-    paddingTop: 10,
+    marginTop: 150,
   },
   list: {
     marginVertical: 50,

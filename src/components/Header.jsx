@@ -38,8 +38,10 @@ export default Header
 
 const styles = StyleSheet.create({
   conteiner:{
+    position: "absolute",
     width: "100%",
-    height: 100
+    height: 100,
+    top: 60,
   },
   box1: {
     width: 50,
