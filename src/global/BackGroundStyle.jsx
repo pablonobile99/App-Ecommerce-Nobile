@@ -7,5 +7,14 @@ export const globalStyles = StyleSheet.create({
   },
   text: {
     fontFamily: "LoraRegular",
+    fontSize: 15,
+  },
+  textTitle: {
+    fontFamily: "LoraRegular",
+    fontSize: 18,
+  },
+  textBig: {
+    fontFamily: "LoraRegular",
+    fontSize: 20,
   }
 });

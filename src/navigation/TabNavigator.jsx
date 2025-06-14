@@ -15,30 +15,33 @@ const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
     return (
         <NavigationContainer>
-            <Tab.Navigator 
+            <Tab.Navigator
                 screenOptions={{
+                    tabBarShowLabel: false,
                     headerShown: false,
                     tabBarStyle: styles.tabBar
                 }}
-                
+
             >
                 <Tab.Screen
                     name="HomeScreen"
                     component={Navigator}
                     options={{
-                        tabBarIcon: ({focused}) =>
-                            <Entypo
-                                name="home"
-                                size={24}
-                                color={!focused ? colors.dark : colors.primary}
-                            />
+                        tabBarIcon: ({ focused }) =>
+                            <View style={styles.icon}>
+                                <Entypo
+                                    name="home"
+                                    size={24}
+                                    color={!focused ? colors.dark : colors.primary}
+                                />
+                            </View>
                     }}
                 />
                 <Tab.Screen
                     name="MenuScreen"
                     component={Loadgame}
                     options={{
-                        tabBarIcon: ({focused}) =>
+                        tabBarIcon: ({ focused }) =>
                             <FontAwesome
                                 name="search"
                                 size={24}
@@ -46,11 +49,11 @@ const TabNavigator = () => {
                             />
                     }}
                 />
-                <Tab.Screen 
+                <Tab.Screen
                     name="HelpScreen"
                     component={Help}
                     options={{
-                        tabBarIcon: ({focused}) => (
+                        tabBarIcon: ({ focused }) => (
                             <Entypo
                                 name="help-with-circle"
                                 size={24}
@@ -67,7 +70,7 @@ const TabNavigator = () => {
 export default TabNavigator
 
 const styles = StyleSheet.create({
-    tabBar:{
+    tabBar: {
         backgroundColor: colors.light,
         shadowColor: "black",
         elevation: 4,
@@ -76,5 +79,11 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         borderRadius: 15,
         height: 65,
+    },
+    icon: {
+        flex: 1,
+        justifyContent: "center",
+/*         borderColor: "black",
+        borderWidth: 5, */
     }
 })

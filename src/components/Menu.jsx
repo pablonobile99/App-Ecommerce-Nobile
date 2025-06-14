@@ -4,6 +4,7 @@ import { colors } from '../global/colors'
 import BotonBase from './BotonBase'
 import { globalStyles } from '../global/BackGroundStyle'
 
+import Entypo from '@expo/vector-icons/Entypo';
 
 const Menu = ({ title, funcionFondo, navigation, route }) => {
 
@@ -21,9 +22,7 @@ const Menu = ({ title, funcionFondo, navigation, route }) => {
     <>
       <TouchableOpacity onPress={(activarMenu)} style={styles.container}>
         <BotonBase tamaño={"cube"}>
-          <Text style={globalStyles.text}>
-            MENU
-          </Text>
+          <Entypo name="menu" size={30} color={colors.primary} />
         </BotonBase>
 
       </TouchableOpacity>
@@ -65,10 +64,10 @@ const styles = StyleSheet.create({
   },
   modalMenu: {
     flex: 1,
-    backgroundColor: colors.soft,
+    backgroundColor: colors.secondary,
     marginVertical: "40%",
     marginHorizontal: "10%",
-    alignContent: "center",
+    alignItems: "center",
     justifyContent: "center",
     padding: 20,
     borderRadius: 10,

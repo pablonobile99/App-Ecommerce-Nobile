@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import Loadgame from './Loadgame'
 import { globalStyles } from '../global/BackGroundStyle'
 import BotonBase from '../components/BotonBase'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 
 const Home = ({ funcionFondo, navigation, route }) => {
@@ -25,16 +26,16 @@ const Home = ({ funcionFondo, navigation, route }) => {
 
           <TouchableOpacity onPress={() => visitarNewgame()}>
             <BotonBase tamaño={"big"}>
-              <Text style={styles.text}>New Game</Text>
+              <Text style={globalStyles.textBig}>New Game</Text>
             </BotonBase>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => visitarLoadgame()}>
             <BotonBase tamaño={"big"}>
-              <Text style={styles.text}>Load Game</Text>
+              <Text style={globalStyles.textBig}>Load Game</Text>
             </BotonBase>
           </TouchableOpacity>
-          
+
       </View>
     </ImageBackground>
   )

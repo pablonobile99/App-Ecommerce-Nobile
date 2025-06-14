@@ -26,9 +26,9 @@ const History = ({ navigation, route }) => {
           /* numColumns={"2"} */
           renderItem={({ item }) => (
             <BotonBase tamaño={"big"}>
-              <Text>Jugador que paga: {item.Out}</Text>
-              <Text>Jugador que Cobra: {item.In}</Text>
-              <Text>Monto: {item.Charge}</Text>
+              <Text style={globalStyles.text}>Jugador que paga: {item.Out}</Text>
+              <Text style={globalStyles.text}>Jugador que Cobra: {item.In}</Text>
+              <Text style={globalStyles.text}>Monto: {item.Charge}</Text>
             </BotonBase>
           )}
         />

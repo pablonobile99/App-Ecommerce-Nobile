@@ -62,7 +62,7 @@ const Loadgame = ({ navigation, route }) => {
           renderItem={({ item }) => (
             <TouchableOpacity style={styles.gamesItem} onPress={() => load(item.id)}>
               <BotonBase tamaño={"big"}>
-                <Text style={globalStyles.text}>
+                <Text style={globalStyles.textBig}>
                   juego:
                   {" " + item.id + " - "}
                   jugadores:

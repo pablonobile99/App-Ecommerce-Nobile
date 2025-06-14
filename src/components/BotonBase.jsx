@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { Children } from 'react'
+import { colors } from '../global/colors'
 
 const BotonBase = ({ children, tamaño }) => {
 
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
     big: {
         width: 280,
         height: 100,
-        backgroundColor: "white",
+        backgroundColor: colors.light,
         borderColor: "grey",
         borderWidth: 1,
         borderRadius: 20,
@@ -52,9 +53,9 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     cube: {
-        width: "100%",
-        height: "100%",
-        backgroundColor: "white",
+        width: 50,
+        height: 50,
+        backgroundColor: "rgba(255,255,255,0.8)",
         borderColor: "grey",
         borderWidth: 1,
         borderRadius: 8,
